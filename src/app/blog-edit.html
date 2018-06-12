@@ -1,0 +1,28 @@
+<div class="blog-edit-container">
+    <h1><span ng-bind="$ctrl.static.actionText"></span> Blog Entry</h1>
+    <table>
+        <tbody>
+            <tr>
+                <td><span class="blog-edit__label">Title</span></td>
+                <td><input class="blog-edit__title" ng-model="$ctrl.model.title" autofocus /></td>
+            </tr>
+            <tr>
+                <td><span class="blog-edit__label">Text</span></td>
+                <td><textarea class="blog-edit__text" ng-model="$ctrl.model.text"></textarea></td>
+            </tr>
+            <tr>
+                <td><span class="blog-edit__label">Tags</span></td>
+                <td><input class="blog-edit__tags" ng-model="$ctrl.model.tags" /></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="blog-edit__button-holder">
+                        <div class="button button__save" ng-click="$ctrl.save()">Save</div>
+                        <div class="button button__clear" ng-click="$ctrl.clear()">Clear</div>
+                        <div class="button button__back" ng-click="$ctrl.back()">Back</div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,4 +1,13 @@
-import app from './BlogEntry.controller';
+import app from '../../app';
+
+/**
+ * Minified by jsDelivr using UglifyJS v3.0.24.
+ * Original file: /npm/phantomjs-polyfill-object-assign@0.0.2/object-assign-polyfill.js
+ * 
+ * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files
+ */
+"function"!=typeof Object.assign&&(Object.assign=function(n){"use strict";if(void 0===n||null===n)throw new TypeError("Cannot convert undefined or null to object");for(var r=Object(n),t=1;t<arguments.length;t++){var o=arguments[t];if(void 0!==o&&null!==o)for(var e in o)o.hasOwnProperty(e)&&(r[e]=o[e])}return r});
+//# sourceMappingURL=/sm/0e40673d547e30004425dcc978cac51f0eca740476ce1a5c27f1b67b1c8c9f17.map
 
 describe('BlogEntryController', () => {
     let ctrl, originalModel;
@@ -74,10 +83,12 @@ describe('BlogEntryController', () => {
 
     describe('when executing the save method', () => {
         beforeEach(function(){
-            
+            spyOn(ctrl.BlogService, 'save');
         });
-        it('should call BlogService.save');
-        it('should call BlogService.save with expected data');
+        it('should call BlogService.save with expected data', ()=>{
+            ctrl.BlogService.save();
+            expect(ctrl.BlogService).toHaveBeenCalled();
+            expect(ctrl.BlogService).toHaveBeenCalledWith(originalModel);
+        });
     })
-
 });

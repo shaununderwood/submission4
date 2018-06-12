@@ -4,9 +4,9 @@ import angular from 'angular';
  *  Blog Service
  * @param $http;
  */
-function BlogService($http){}
-
-
+function BlogService($http){
+  this.$http = $http;
+}
 
 
 

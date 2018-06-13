@@ -22,6 +22,10 @@ describe('BlogService', () => {
             expect(blogService.save).toBeDefined();
             expect(blogService.save instanceof Function).toBeTruthy();
         });
+        it('applyFilter', () => {
+            expect(blogService.applyFilter).toBeDefined();
+            expect(blogService.applyFilter instanceof Function).toBeTruthy();
+        });
     });
 
     describe('should make a called to the backend', () => {
@@ -53,6 +57,13 @@ describe('BlogService', () => {
         it('and save results to service.blogPosts', () => {
             blogService.refreshBlogPosts();
             httpBackend.expectGet('/posts');
+            httpBackend.flush();
+            expect(blogService.blogPosts).toEqual(expectedResponse);
+        });
+        it('when applyFilter is called', ()=>{
+            let someText='randomtag';
+            blogService.applyFilter(someText);
+            httpBackend.expectGet('/posts?filter=randomtag');
             httpBackend.flush();
             expect(blogService.blogPosts).toEqual(expectedResponse);
         });

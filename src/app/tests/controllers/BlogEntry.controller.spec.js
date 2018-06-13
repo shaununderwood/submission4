@@ -86,10 +86,8 @@ describe('BlogEntryController', () => {
         });
         it('should call BlogService.save with expected data', ()=>{
             ctrl.BlogService.save();
-            expect(ctrl.BlogService).toHaveBeenCalled();
-            expect(ctrl.BlogService).toHaveBeenCalledWith(originalModel);
+            expect(ctrl.BlogService.save).toHaveBeenCalled();
+            expect(ctrl.BlogService.save).toHaveBeenCalledWith(originalModel);
         });
-    })
-
-    
+    });
 });

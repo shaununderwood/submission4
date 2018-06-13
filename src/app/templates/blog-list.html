@@ -1,20 +1,25 @@
 <div class="blog-list-container">
-    <div class="blog-item">
+    <div class="blog-item effect2" ng-if="$ctrl.BlogService.blogPosts.length>0" ng-repeat="blog in $ctrl.BlogService.blogPosts">
         <div class="blog-item__title">
             <h1>
-                <span class="blog-id" ng-bind="'1'"></span>
-                <span class="blog-title" ng-bind="'Title'"></span>
+                <span class="blog-id" ng-bind="blog.id"></span>
+                <span class="blog-title" ng-bind="blog.title"></span>
             </h1>
         </div>
-        <div class="blog-item__text" ng-bind="'Blog text'"></div>
+        <div class="blog-item__text" ng-bind="blog.text"></div>
         <div class="blog-item__tags">
             <ul>
-                <li class="tag" ng-bind="'tag'"></li>
+                <li class="tag" ng-repeat="tag in blog.tags.split(',')" ng-bind="tag" ng-click="$ctrl.filterByTag(tag)"></li>
             </ul>
         </div>
     </div>
+
+    <div class="blog-empty" ng-if="$ctrl.BlogService.blogPosts.length===0">
+        <span>No blog posts to display</span>
+    </div>
+
     <div class="blog-controls">
-        <a ui-sref="bloglist">Refresh</a>
-        <a ui-sref="newblog">New Blog Entry</a>
+        <a class="button" ui-sref="bloglist">Refresh</a>
+        <a class="button" ui-sref="newblog">New Blog Entry</a>
     </div>
 </div>

@@ -6,7 +6,10 @@ import angular from 'angular';
  */
 function BlogService($http){
   this.$http = $http;
-  this.blogPosts = [];
+  this.blogPosts = [
+    { id: 2, title: 'title2', text: 'text2', tags: 'tag1,tag2' },
+    { id: 3, title: 'title3', text: 'text3', tags: 'tag2,tag3' }
+  ];
 }
 
 BlogService.prototype.getAllBlogPosts = function getAllBlogPosts(){

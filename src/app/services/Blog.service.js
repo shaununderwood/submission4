@@ -6,8 +6,21 @@ import angular from 'angular';
  */
 function BlogService($http){
   this.$http = $http;
+  this.blogPosts = [];
 }
 
+BlogService.prototype.getAllBlogPosts = function getAllBlogPosts(){
+  // TODO
+};
+
+BlogService.prototype.save = function save(){
+  // TODO
+};
+
+BlogService.prototype.refreshBlogPosts = function refreshBlogPosts(){
+  // TODO
+  this.getAllBlogPosts();
+};
 
 
 const MODULE_NAME = 'BlogEntry';
